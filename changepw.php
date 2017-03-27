@@ -1,4 +1,4 @@
-<?php include('authentication.php'); ?>
+
 <?php
 
 //avoid error notices, display only warnings:
@@ -9,7 +9,6 @@ error_reporting(0);
  
 	//connect to database:
 	include('connection.php');
-	include("navbar-admin.php");
 	echo "<br />";
 	
 	//Create an array for errors:
@@ -43,16 +42,16 @@ $e = mysqli_real_escape_string($dbc, trim($_POST['email'])); //escape is to have
 	//if there is no errors:
 	if(empty($errors)){
 		//create query and return number of rows where email = $e and password = $p:
-		$q = "SELECT id FROM user WHERE (Email='$e' AND pw='$p')"; //query the database
+		$q = "SELECT id FROM users WHERE (email='$e' AND pw='$p')"; //query the database
 		$r = mysqli_query($dbc, $q); //store the query result which are all the IDs that matching the email
 		$num = mysqli_num_rows($r); //return how many records matched; should be one
 		
 		//get user id where email = $e and password = $p:
-		if($num == 1){
+		if($num >0){
 			$row = mysqli_fetch_array($r, MYSQLI_NUM);
 				
 			//Make the UPDATE query:
-			$q = "UPDATE user SET pw='$np' WHERE id='$row[0]'";
+			$q = "UPDATE users SET pw='$np' WHERE id='$row[0]'";
 			$r = mysqli_query($dbc, $q);
 			
 			//if everything was ok:

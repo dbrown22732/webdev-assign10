@@ -1,4 +1,4 @@
-<?php include('authentication.php'); ?>
+
 <?php
 
 //avoid error notices, display only warnings:
@@ -9,7 +9,6 @@ error_reporting(0);
  
 	//connect to database:
 	include('connection.php');
-	include("navbar.php");
 	echo "<br />";
 	
 	//Create an array for errors:
@@ -91,3 +90,4 @@ $nph = mysqli_real_escape_string($dbc, trim($_POST['new_phone'])); //escape is t
 	} 
  
  }
+

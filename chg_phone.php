@@ -7,7 +7,7 @@
 
 <body>
     <h3>Change Phone Number</h3>
-<form action="changephone.php" method="post">
+<form action="chg_phone.php" method="post">
     <p>Current Email: <input type="text" name= "new_email" size="20" maxlength="50" /></p>
     <p>New Phone Number: <input type="text" name= "new_phone" size="20" maxlength="50" /></p>
     <p>Password:<input type="password" name="pass" maxlength="50" /></p>
@@ -19,4 +19,4 @@
 <?php include('footer.php'); ?>
 </body>
 </html>
-
+<?php include('changephone.php'); ?>
