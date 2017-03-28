@@ -32,6 +32,7 @@ $nph = mysqli_real_escape_string($dbc, trim($_POST['new_phone'])); //escape is t
 		$errors[] = 'You forgot to enter your current password!';
 	}else{
 		$p = mysqli_real_escape_string($dbc, trim($_POST['pass']));
+        $p_hash = password_hash($p, PASSWORD_DEFAULT);
 	}
 	
 	//check for a new password and compare it with confirmed password:
@@ -57,7 +58,7 @@ $nph = mysqli_real_escape_string($dbc, trim($_POST['new_phone'])); //escape is t
 	//if there is no errors:
 	if(empty($errors)){
 		//create query and return number of rows where email = $e and password = $p:
-		$q = "SELECT id FROM users WHERE (email='$e' AND pw='$p')"; //query the database
+		$q = "SELECT id FROM users WHERE (email='$e')"; //query the database
 		$r = mysqli_query($dbc, $q); //store the query result which are all the IDs that matching the email
 		$num = mysqli_num_rows($r); //return how many records matched; should be one
 		

@@ -11,6 +11,7 @@
 		if (isset($_POST['login_email']) && isset($_POST['login_pass'])) {
 			$email = $_POST['login_email'];
 			$pass = $_POST['login_pass'];
+            $hash = password_hash($pass, PASSWORD_DEFAULT);
 
 
 			// Connect to the database and select the user based on their provided email address.
@@ -26,8 +27,8 @@
 			// These values follow the user around the site and will be tested on each page.
 			if (($numrows > 0)) {
                 while($row = mysqli_fetch_array($query)){
-                    if ($row['email'] = $email){
-                        if ($row['pw'] ==  $pass) {
+                    if ($row['email'] == $email){
+                        if (password_verify($pass,$row['pw'])) {
                             
                             $_SESSION['is_auth'] = true;
                             $_SESSION['user_id'] = $row['id'];
@@ -50,10 +51,10 @@
                         
 
 				} else {
-					echo "Invalid email or password. Please try again.";
+					echo "Invalid password. Please try again.";
 				}
 			} else {
-				echo "Invalid email or password. Please try again.";
+				echo "Invalid email. Please try again.";
 			}
                 }
 		} else {

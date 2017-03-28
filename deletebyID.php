@@ -7,11 +7,12 @@
 
 <body>
     <h3>Are you sure you want to delete this user?</h3>
-<form action="delete.php" method="post">
-    <p>Email: <input type="text" name= "login_email" size="20" maxlength="50" /></p>
+<form action="deletebyID.php" method="post">
+    <p>ID Number: <input type="text" name= "id" size="20" maxlength="50" /></p>
     <p><input type="submit" name="submit" value="Delete User" /></p>
 </form>
 <a href = "main_admin.php">Back to Home</a><p></p>
+    <a href = "admin_records.php">No, go back to records</a><p></p>
 </body>
 </html>
 
@@ -24,9 +25,9 @@ error_reporting(0);
 //check if user clicked the delete button in the form:
 If($_SERVER['REQUEST_METHOD'] == 'POST'){
 include("connection.php");	
-$email = $_POST["login_email"];
+$id = $_POST["id"];
 //delete user where email = $email_from_form_input: 
-mysqli_query($dbc, "DELETE FROM users WHERE email='".$email."' ");	
+mysqli_query($dbc, "DELETE FROM users WHERE id='".$id."' ");	
     
 if(mysqli_affected_rows($dbc) == 1){
 				//Ok message confirmation:	

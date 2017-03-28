@@ -21,14 +21,13 @@ echo "
 
 <tbody>
     <tr>
-        <td align = 'left'><a href = 'edit.html?email=".$row['email']."'>Edit</a></td>
-        <td align = 'left'><a href = 'delete.html?id=" .$row['Id']."'>Delete</a></td>
-        <td align = 'left'>".$row['email']."</td>
-        <td align = 'left'>".$row['first_name']."</td>
-        <td align = 'left'>".$row['last_name']."</td>
-        <td align = 'left'>".$row['phone']."</td>
-        <td align = 'left'><a href = 'delete.php?id=" .$row['Id']."'>Delete By ID</a></td>
-        <td align = 'left'>".$row['user_type']."</td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'><a href = 'edit.php?email=".$row['email']."'>Edit </a></td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'><a href = 'deletebyID.php?id=" .$row['Id']."'>Delete </a></td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'>".$row['email']. "</td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'>".$row['first_name']. "</td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'>".$row['last_name']. "</td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'>".$row['phone']. "</td>
+        <td style='padding: 10px; border-bottom: 1px solid #aad;'><a href = 'deletebyID.php?id=" .$row['Id']."'>Delete By ID </a></td>
     </tr>
 </tbody>";
 
